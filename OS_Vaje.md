@@ -75,4 +75,56 @@ exit code
   
 ### Substitucija vrednosti spremenljivk
 #
+Naj bo dana spremenljivka `a=1:2:3:4:5`
+```bash
+echo ${a#*:} # Spredaj odstrani vse do prvega ":"
+echo ${a##*:} # Spredaj odstrani vse do zadnjega ":"
+echo ${a%:*} # Zadaj odstrani vse do prvega ":"
+echo ${a%%:*} # Zadaj odstrani vse do zadnjega ":"
+```
+  
+  
+### Pogojni izrazi
+#
+```bash
+[[ -e /etc/passwd ]] && echo "OK" # Preveri če obstaja datoteka /etc/passwd, in če izpiše OK
+mkdir naloga && cd naloga && echo $PWD && cd .. # Naredi imenik naloga, skoči vanj, izpiše trenutni delovni imenik in skoči v starševski imenik.
+# Če pride med delom do napake, se program ne izvede do konca
+[[ $smisel = 42 ]] && echo OK || echo ERR # Če je smisel enak 42 izpiše OK, drugače ERR
+```
+  
+  
+### Zankice
+#
+While zanka, ki izpiše vsa soda števila od 0 do 100.
+```bash
+i=0
+while [ $i -le 100 ]; do
+if [ $(( i%2 )) -eq 0 ]; then
+echo $i;
+fi;
+i=$(( i+1 ))
+```
+For zanka, ki vsem `.jpg` datotekam v trenutnem imeniku spremeni končnico na `.jpeg`.
+```bash
+for i in $( ls ); do
+if [ ${i##*.} = jpg ]; then
+mv $i "${i%.*}.jpeg";
+fi;
+done
+```
+  
+  
+### Ujemanje vzorcev
+#
+```bash
+echo *[0-9] # v /proc/ izpiše pid vseh procesov
+echo * # v etc izpiše vse datoteke
+```
+  
+  
+
+# Ukazi tretjega izziva
+
+
 
