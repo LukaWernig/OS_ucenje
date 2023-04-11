@@ -67,7 +67,7 @@ Skripta, ki izbriše sama sebe
 ```
 Skripta, ki zaključi program ali s prvim podanim argumentom, čigar privzeta vrednost je 42.
 ```bash
-#!/usr/bin/bash
+#!/bin/bash
 code=${1:-42}
 exit code
 ```
