@@ -84,3 +84,36 @@ for i in $file; do # Loopam po vseh PID-jih v datoteki
 done
 exit 42;
 ```
+
+
+### Abrakadabra
+#
+
+![abrakadabra](abrakadabra.png)
+
+Rekurzivna funkcija, ki od imenika podanega kot prvi argument, ki je sicer kar trenutni delavni imenik,
+izpiše imena vseh datotek, ki vsebujejo `ABRAKADABRA`.
+
+```bash
+#!/bin/bash
+
+arg=${1:-$PWD}
+
+function abrakadabra {
+        dir=$1
+        for i in $(ls $dir); do
+                type=$(stat -c "%F" "$dir/$i");
+                case $type in
+                        "directory") abrakadabra "$dir/$i" ;;
+                        "regular file") grep -q "ABRAKADABRA" "$dir/$i" && \
+                                 echo $i ;;
+                        *) ;;
+                esac;
+        done
+        dir=${dir%/*}
+}
+
+abrakadabra $arg
+
+exit 0
+```
