@@ -122,7 +122,30 @@ echo *[0-9] # v /proc/ izpiše pid vseh procesov
 echo * # v etc izpiše vse datoteke
 ```
   
-  
+### Izziv za oddati
+#
+Studentske stevilke. Ob vnosu na standardni vhod, ki je oblike
+`vpisna_st a b c`, mi na standardni vhod vrne `vpisna_st sum(a,b,c)`.
+
+```bash
+#!/bin/bash
+
+read line;
+
+while [[ -n $line ]]; do
+    vpisna_st=${line%% *};
+    stevilke=${line#* };
+    sum=0;
+    for i in $stevilke; do
+        sum=$(( sum+i ));
+    done
+    
+    echo $vpisna_st $sum;
+    read line;
+done
+exit 42
+
+```
 
 # Ukazi tretjega izziva
 
