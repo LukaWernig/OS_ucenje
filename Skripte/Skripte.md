@@ -43,7 +43,7 @@ exit 0;
 ### Predniki
 #
   
-![predniki][predniki.png]
+![predniki](predniki.png)
 
 Skripta, ki izpiše vse prednike nekih procesov, katerih PID so podani v datoteki, ki je podana v prvem argumentu.
 Tu je dodano še preverjanje, če datoteka sploh obstaja, da je bilo testiranje delovanja možno.
