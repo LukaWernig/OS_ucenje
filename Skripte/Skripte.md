@@ -91,7 +91,7 @@ exit 42;
 
 ![abrakadabra](abrakadabra.png)
 
-Rekurzivna funkcija, ki od imenika podanega kot prvi argument, ki je sicer kar trenutni delavni imenik,
+Rekurzivna funkcija, ki od imenika, podanega kot prvi argument, ki je sicer kar trenutni delavni imenik,
 izpiše imena vseh datotek, ki vsebujejo `ABRAKADABRA`.
 
 ```bash
